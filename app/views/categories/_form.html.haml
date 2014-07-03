@@ -1,0 +1,14 @@
+.modal-body
+  .row-fluid
+    .span12
+      = simple_form_for @category, :html => { :class => 'form-horizontal' } do |f|
+        = f.input :name
+        = f.hidden_field :parent_id
+.modal-footer
+  %button.btn{"data-dismiss" => "modal", type: "button"} Close
+  %button.btn.btn-primary.ajax-submit{type: "button"} Save changes
+
+
+:coffee
+  $ ->
+    Form.init('#categories-container', '#category-modal')

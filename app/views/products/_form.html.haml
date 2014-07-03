@@ -1,0 +1,12 @@
+= simple_form_for @product, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :name
+  = f.input :price
+  = f.input :categories_tags
+  = f.button :submit, :class => 'btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), products_path, :class => 'btn btn-default'
+
+
+
+:coffee
+  tags = #{Category.all.map{|c| {:id => c.id, :text => c.name}}.to_json}
+  $('#product_categories_tags').select2({tags: tags})

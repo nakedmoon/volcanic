@@ -1,0 +1,25 @@
+- model_class = Category
+
+.panel.panel-default
+  .panel-heading
+    %h4.panel-title=t '.title', :default => model_class.model_name.human.pluralize.titleize
+  .panel-body
+    .form-inline
+      .form-group
+        .input-group
+          .input-group-addon
+            =content_tag(:span, '', :class => 'glyphicon glyphicon-zoom-in')
+          %input.form-control{:type => 'text', :placeholder => 'Search', :id => 'tree-search'}
+      =content_tag(:button, :class => 'btn btn-primary tree-action', :type => 'button', 'data-action-url' => new_category_path, :id => 'tree-action-new') do
+        =content_tag(:span, '', :class => 'glyphicon glyphicon-plus') + ' Add Root'
+
+
+.well#categories-container{"data-load-url" => categories_path}
+  =render :partial => "list"
+
+#category-modal.modal.fade{:tabindex => "-1", "data-width" => '760', :style => 'overflow:hidden'}
+
+
+
+
+

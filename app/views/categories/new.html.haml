@@ -1,0 +1,7 @@
+- model_class = Category
+.modal-header
+  %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+  %h3=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize
+= render :partial => "form"
+
+
